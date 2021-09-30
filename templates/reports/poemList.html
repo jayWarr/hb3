@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--Poem List 2 last updated: 14-Apr-20-->
+<!--added fields                       -->
+{% load static %}
+{% load get_tags %}
+
+<head>
+		<meta charset="UTF-8">
+		<meta name="{{ userName }}" content="hummingBird &copy; detailed poem report&nbsp;&nbsp; {{ dateTimeNow }} &nbsp;&nbsp;">
+		<title>Detailed poem listing</title>
+		<STYLE type="text/css">
+	    	@page { /* size and margin of resulting PDF pages */
+            size: A4 landscape;
+            margin: 1cm;
+
+            }
+
+            @media print { thead {display: table-header-group;}
+            }
+
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto.ttf");
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-bold.ttf");
+                font-weight: bold;
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-italic.ttf");
+                font-style: italic;
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-bold-italic.ttf");
+                font-weight: bold;
+                font-style: italic;
+            }
+            body {
+                background-color: white;
+                color: black;
+                font-size: 14px;
+                font-family: Georgia;
+            }
+            .main-title {
+                margin-top: 10px;
+                font-size: 28px;
+                margin-bottom: 0px;
+
+                background-color: steelblue;
+                color: white;
+                text-align: right;
+            }
+
+            .heading2 {
+                font-size: 18px;
+                margin-bottom: 0px;
+                background-color: steelblue;
+                color: white;
+                text-align: left;
+            }
+            .heading3 {
+                font-size: 9px;
+                margin-bottom: 2px;
+                font-weight: bold;
+                background-color: steelblue;
+                color: white;
+                text-align: right;
+            }
+
+            .footer {
+                position: absolute;
+                margin-top: 10px;
+                left: 0;
+                 bottom: 0;
+                 width: 100%;
+                background-color: steelblue;
+                color: white;
+                text-align: center;
+            }
+
+        	#detail {
+    		font-family: Georgia;
+    		font-size: 11px;
+    		border-collapse: collapse;
+    		width: 100%;
+    		}
+
+    		#detail td, #detail th {
+    		border: 1px solid #ddd;
+			padding: 4px
+			}
+
+			#detail th {
+			padding-top: 4px;
+			padding-bottom:4px;
+    		text-align: left;
+    		background-color: lightsteelblue;
+    		color: steelblue;
+			}
+
+			#detail tr:nth-child(even){background-color: #f2f2f2;}
+
+			#detail tr:hover {background-color: #ddd;}
+
+			ul.s { list-style-type: square; }
+
+
+        </style>
+</head>
+
+<!--< ------------------------------------------------------>
+<body>
+
+    <img src="{{ logo }}" alt="logo" align="right"/>
+    <div class="main-title"></br>{{ poemList|length }} selected poem{{ poemList|pluralize }}&nbsp;&nbsp;</div>
+
+    <div class="heading2">&nbsp;&nbsp;&nbsp;Listing</div>
+
+
+<!--< ------------------------------------------------------>
+
+<table id="detail">
+     <thead style="display: table-header-group">
+    <tr>
+        <th colspan="5">Title</th>
+        <th colspan="2">Dtlu / Sd</th>
+        <th colspan="2">Form</th>
+        <th colspan="1">WIP</th>
+        <th colspan="1">Mu</th>
+        <th colspan="1">nE2C</th>
+        <th colspan="1">nEE2C</th>
+        <th colspan="1">nS2M</th>
+        <th colspan="1">nES2M</th>
+        <th colspan="1">niP</th>
+        <th colspan="1">nR</th>
+        <th colspan="4">Tags</th>
+    </tr>
+    </thead>
+    {% for p in poemList %}
+    <tr>
+        <td colspan="5"><b>{{ p.title }}</b></td>
+        <td colspan="2">{{ p.dtlu|date:"Y-M-d" }}</td>
+        <td colspan="2">{{ p.form }}</td>
+        <td colspan="1">{{ p.wip|yesno }}</td>
+        <td colspan="1">{{ p.mu|yesno }}</td>
+        <td colspan="1">{{ p.nE2C  }}</td>
+        <td colspan="1">{{ p.nEE2C }}</td>
+        <td colspan="1">{{ p.nS2M  }}</td>
+        <td colspan="1">{{ p.nES2M  }}</td>
+        <td colspan="1">{{ p.niP  }}</td>
+        <td colspan="1">{{ p.nR  }}</td>
+        <td colspan="4">{{ p.tags|get_tags }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</br>
+     <ul style="font-size=8px;">Ledgend:
+         <li>Dtlu     	- date info. last updated</li>
+         <li>Sd         - source document</li>
+         <li>Form     	- poetic form</li>
+         <li>WIP      	- work in progress</li>
+         <li>Mu       	- multiple use</li>
+         <li>nE2C     	- number of entries to competitions</li>
+         <li>nEE2C    	- number of expired entries to competitions</li>
+         <li>nS2M     	- number of submissions to magazines</li>
+         <li>nES2M    	- number of expired submissions to magazines</li>
+         <li>niP      	- number in publications</li>
+         <li>nR       	- number of readings</li>
+         <li>tag	    - identifying word/phrase</li>
+     </ul>
+</br>
+<!--<---Footnote----------------------------------------------------->
+    <div class="footer">hummingBird &copy;  poem listing report&nbsp;&nbsp;{{ dateTimeNow }}</div>
+<!--<---Footnote----------------------------------------------------->
+</body>
+</html>

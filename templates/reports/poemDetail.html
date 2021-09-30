@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!--Poem Detail 1 last updated: 8-Oct-19-->
+{% load static %}
+{% load get_tags %}
+
+<html lang="en">
+
+    {% if theFirst %}
+	    <head>
+		<meta charset="UTF-8">
+		<meta name="{{ userName }}" content="hummingBird &copy; detailed poem report&nbsp;&nbsp; {{ dateTimeNow }} &nbsp;&nbsp;">
+		<title>Poem detail</title>
+            <STYLE type="text/css">
+                @page { /* size and margin of resulting PDF pages */
+                size: a4;
+                margin: 2cm;
+
+                }
+                @font-face {
+                    font-family: Georgia;
+                    src: url( "{{ staticRoot }}_fonts/noto.ttf");
+                }
+                @font-face {
+                    font-family: Georgia;
+                    src: url( "{{ staticRoot }}_fonts/noto-bold.ttf");
+                    font-weight: bold;
+                }
+                @font-face {
+                    font-family: Georgia;
+                    src: url( "{{ staticRoot }}_fonts/noto-italic.ttf");
+                    font-style: italic;
+                }
+                @font-face {
+                    font-family: Georgia;
+                    src: url( "{{ staticRoot }}_fonts/noto-bold-italic.ttf");
+                    font-weight: bold;
+                    font-style: italic;
+                }
+                body {
+                    background-color: white;
+                    color: black;
+                    font-size: 14px;
+                    font-family: Georgia;
+                }
+                .main-title {
+                    margin-top: 10px;
+                    font-size: 28px;
+                    margin-bottom: 0px;
+
+                    background-color: steelblue;
+                    color: white;
+                    text-align: right;
+                }
+                .heading1 {
+                    font-size: 18px;
+                    margin-bottom: 4px;
+                    font-weight: bold;
+                    background-color: steelblue;
+                    color: white;
+                    text-align: left;
+                }
+                .heading2 {
+                    font-size: 14px;
+                    margin-bottom: 0px;
+                    background-color: steelblue;
+                    color: white;
+                    text-align: left;
+                }
+                .heading3 {
+                    font-size: 9px;
+                    margin-bottom: 2px;
+                    font-weight: bold;
+                    background-color: steelblue;
+                    color: white;
+                    text-align: right;
+                }
+
+                .footer {
+                    position: absolute;
+                    margin-top: 5px;
+                    left: 0;
+                     bottom: 0;
+                     width: 100%;
+                    background-color: steelblue;
+                    color: white;
+                    text-align: center;
+                }
+
+                .example {
+                    margin-bottom: 15px;
+                }
+
+                #detail {
+                font-family: Georgia;
+                font-size: 11px;
+                border-collapse: collapse;
+                width: 100%;
+                }
+
+                #detail td, #detail th {
+                border: 1px solid #ddd;
+                padding: 4px
+                }
+
+                #detail th {
+                padding-top: 4px;
+                padding-bottom: 4px;
+                text-align: left;
+                background-color: lightsteelblue;
+                color: steelblue;
+                }
+
+                #detail tr:nth-child(even){background-color: #f2f2f2;}
+
+                #detail tr:hover {background-color: #ddd;}
+
+                ul.s { list-style-type: square; }
+
+            </style>
+        </head>
+    {% endif %}
+<!--< ------------------------------------------------------>
+	<body>
+	    {% if notTheFirst %}
+            <div>
+                <pdf:nextpage />
+            </div>
+        {% endif %}
+
+		<img src="{{ logo }}" alt="logo" align="right"/>
+		
+        <div class="main-title"></br>{{ poem.title}}&nbsp;&nbsp;</div>
+
+		<div class="heading2">&nbsp;&nbsp;&nbsp;Detail</div>
+		<table id="detail">
+    		<tr>
+        		<th colspan="2">Dtlu</th>
+        		<th colspan="2">Form</th>       		
+        		<th colspan="1">WIP</th>
+                <th colspan="1">Mu</th>
+        		<th colspan="3">Tags</th>
+   			</tr>
+    		<tr>
+				<td colspan="2">{{ poem.dtlu|date:"Y-M-d" }}</td>
+        		<td colspan="2">{{ poem.form }}</td>
+        		<td colspan="1">{{ poem.wip|yesno}}</td>
+                <td colspan="1">{{ poem.mu|yesno}}</td>
+        		<td colspan="3">{{ poem.tags|get_tags }}</td>
+    		</tr>
+        </table>
+
+        {% if hasSum %}
+            <div class="heading2">&nbsp;&nbsp;&nbsp;Summaries</div>
+            <table id="detail">
+                {% if hasEntorSub %}
+                    <thread>
+                    <tr>
+                        <th colspan="6">Type</th>
+                        <th colspan="3"># current</th>
+                        <th colspan="3"># expired</th>
+                    </tr>
+                    </thread>
+                    {% if hasEnt %}
+                        <tr>
+                            <td colspan="6">&nbsp;&nbsp;&nbsp;Competition entries</td>
+                            <td colspan="3">{{ poem.nE2C }}</td>
+                            <td colspan="3">{{ poem.nEE2C }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if hasSub %}
+                        <tr>
+                            <td colspan="6">&nbsp;&nbsp;&nbsp;Magazine submissions</td>
+                            <td colspan="3">{{ poem.nS2M }}</td>
+                            <td colspan="3">{{ poem.nES2M }}</td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+                {% if hasPorR %}
+                    <tr>
+                        <th colspan="6">&nbsp;&nbsp;&nbsp;</th>
+                        <th colspan="3"># Publications </th>
+                        <th colspan="3"># Readings</th>
+                    </tr>
+                    <tr>
+                        <td colspan="6">&nbsp;&nbsp;&nbsp;Used in/at</td>
+                        <td colspan="3">{{ poem.niP }}</td>
+                        <td colspan="3">{{ poem.nR }}</td>
+                    </tr>
+                {% endif %}
+            </table>
+        {% endif %}
+
+<!--< ------------------------------------------------------>
+    {% if theEntries  %}
+
+        {% if theEntries|length == 1 %}
+            <div class="heading2">&nbsp;&nbsp;&nbsp;1 Entry to a competition</div>
+        {% else %}
+            <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theEntries|length }} entries to competitions</div>
+        {% endif %}
+
+        <table id="detail">
+            <thread>
+                <tr>
+                    <th colspan="4">Competition</th>
+                    <th colspan="2">Entered on</th>
+                    <th colspan="2">Committed until</th>
+                    <th colspan="2">Placement</th>
+                    <th colspan="2">Expired</th>
+                </tr>
+            </thread>
+        {% for ent in theEntries %}
+            <tr>
+                <td colspan="4"> {{ ent.competition }}</td>
+                <td colspan="2"> {{ ent.enteredOn|date:"Y-M-d" }}</td>
+                <td colspan="2"> {{ ent.committedUntil|date:"Y-M-d" }}</td>
+                <td colspan="2"> {{ ent.place }}</td>
+                <td colspan="2"> {{ ent.expired|yesno}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+<!--< ------------------------------------------------------>
+    {% if theSubmissions %}
+        <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theSubmissions|length }} Sunmission{{ theSubmissions|pluralize }} to magazines</div>
+        <table id="detail">
+            <thread>
+                <tr>
+                    <th colspan="2">Magazine</th>
+                    <th colspan="2">Submitted on</th>
+                    <th colspan="2">Committed until</th>
+                    <th colspan="2">Status</th>
+                    <th colspan="2">In edition</th>
+                    <th colspan="2">Expired</th>
+                </tr>
+            </thread>
+        {% for sub in theSubmissions %}
+            <tr>
+                <td colspan="2"> {{ sub.magazine }}</td>
+                <td colspan="2"> {{ sub.submittedOn|date:"Y-M-d" }}</td>
+                <td colspan="2"> {{ ent.committedUntil|date:"Y-M-d" }}</td>
+                <td colspan="2"> {{ ent.status }}</td>
+                <td colspan="2"> {{ ent.inEdition|date:"Y-M-d" }}</td>
+                <td colspan="2"> {{ ent.expired|yesno}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+<!--< ------------------------------------------------------>
+    {% if theContents %}
+        <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theContents|length }} Contents{{ theContents|pluralize }} for publications</div>
+        <table id="detail">
+            <thread>
+                <tr>
+                    <th colspan="2">Published on</th>
+                    <th colspan="10">Publication</th>
+                </tr>
+            </thread>
+        {% for cnt in theContents %}
+            <tr>
+                <td colspan="2"> {{ cnt.created|date:"Y-M-d" }}</td>
+                <td colspan="10"> {{ cnt.publication }} </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+<!--< ------------------------------------------------------>
+    {% if theReadings %}
+        <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theReadings|length }} Reading{{ theReadings|pluralize }} at event{{ theReadings|pluralize }}</div>
+        <table id="detail">
+            <thread>
+                <tr>
+                    <th colspan="12">Event</th>
+                </tr>
+            </thread>
+        {% for evnt in theReadings  %}
+            <tr>
+                <td colspan="12"> {{ evnt.event }}  </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}    
+<!--< ------------------------------------------------------>
+      {% if theCategories %}
+        <div class="heading2">&nbsp;&nbsp;&nbsp;
+          {% if  theCategories|length == 1 %}1 Category
+          {% else %}{{ theCategories|length }} Categories
+          {% endif %}
+        </div>
+        <table id="detail">
+            <thread>
+                <tr>
+                    <th colspan="5">Name</th>
+                </tr>
+            </thread>
+        {% for cat in theCategories %}
+            <tr>
+                <td colspan="5"> {{ cat.category }}  </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+<!--< ------------------------------------------------------>
+      {% if theLinks %}
+        <table id="detail">
+            <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theLinks|length }} Link{{ theLinks|pluralize }}</div>
+            <thread>
+                <tr>
+                    <th colspan="5">Created on</th>
+                    <th colspan="2">Type</th>
+                    <th colspan="17">URL</th>
+                </tr>
+            </thread>
+        {% for ln in theLinks %}
+            <tr>
+                <td colspan="5"> {{ ln.created|date:"Y-M-d H:i" }}  </td>
+                <td colspan="2"> {{ ln.type }}  </td>
+                <td colspan="17" style="font-size: 8pt"> {{ ln.url}} </td>
+            </tr>
+        {% endfor %}
+        </table>
+      {% endif %}
+
+<!--<---Notes-------------------------------------------------------->
+      {% if theNotes %}
+        <table id="detail">
+            <div class="heading2">&nbsp;&nbsp;&nbsp;{{ theNotes|length }} Note{{ theNotes|pluralize }}</div>
+            <thread>
+                <tr>
+                    <th colspan="7">Updated</th>
+                    <th colspan="5">Type</th>
+                    <th colspan="5">Subtype</th>
+                    <th colspan="10">Topic</th>
+                </tr>
+            </thread>
+        {% for nt in theNotes %}
+            <tr>
+                <td colspan="7"> {{ nt.created|date:"Y-M-d H:i" }}  </td>
+                <td colspan="5"> {{ nt.type }}  </td>
+                <td colspan="5"> {{ nt.subtype }}  </td>
+                <td colspan="10"> {{ nt.topic }}  </td>
+            </tr>
+        {% endfor %}
+        </table>
+      {% endif %}
+
+
+<!--<---No details--------------------------------------------------->
+{% if not theEntries or not theSubmissions or not theContents or not theReadings or not theLinks or not theNotes %}
+    </br>
+    <ul style="font-size=9px;">No records for:
+    {% if not theCategories %}<li>categories</li>{% endif %}
+    {% if not theLinks %}<li>links</li>{% endif %}
+    {% if not theNotes %}<li>notes</li>{% endif %}
+    {% if not theEntries %}<li>entries to competitions</li> {% endif %}
+    {% if not theSubmissions %}<li>submissions to magazines</li> {% endif %}
+    {% if not theContents %}<li>content for publications</li> {% endif %}
+    {% if not theReadings %}<li>readings at events</li> {% endif %}
+    </ul>
+{% endif %}
+</br>
+<!--<---Footnote----------------------------------------------------->
+<div class="footer">&copy;&nbsp;hummingBird detailed poem report&nbsp;&nbsp;{{ dateTimeNow }} &nbsp;&nbsp;</div>
+<!--<---Footnote----------------------------------------------------->
+</body>
+</html>

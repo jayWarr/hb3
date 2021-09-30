@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--Entries List - last updated: 10-Oct-19-->
+{% load static %}
+
+<head>
+		<meta charset="UTF-8">
+		<meta name="{{ userName }}" content="hummingBird &copy; entries report&nbsp;&nbsp; {{ dateTimeNow }} &nbsp;&nbsp;">
+		<title>Poem list</title>
+		<STYLE type="text/css">
+	    	@page { /* size and margin of resulting PDF pages */
+            size: A4 landscape;
+            margin: 2cm;
+            }
+
+            #pageNumber { content: counter(page) }
+
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto.ttf");
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-bold.ttf");
+                font-weight: bold;
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-italic.ttf");
+                font-style: italic;
+            }
+            @font-face {
+                font-family: Georgia;
+                src: url( "{{ staticRoot }}_fonts/noto-bold-italic.ttf");
+                font-weight: bold;
+                font-style: italic;
+            }
+            body {
+                background-color: white;
+                color: black;
+                font-size: 14px;
+                font-family: Georgia;
+            }
+            .main-title {
+                margin-top: 10px;
+                font-size: 28px;
+                margin-bottom: 0px;
+
+                background-color: orangered;
+                color: white;
+                text-align: right;
+            }
+
+            .heading2 {
+                font-size: 18px;
+                margin-bottom: 0px;
+                background-color: orangered;
+                color: white;
+                text-align: left;
+            }
+            .heading3 {
+                font-size: 9px;
+                margin-bottom: 2px;
+                font-weight: bold;
+                background-color: orangered;
+                color: white;
+                text-align: right;
+            }
+
+            .footer {
+                position: absolute;
+                margin-top: 10px;
+                left: 0;
+                 bottom: 0;
+                 width: 100%;
+                background-color: orangered;
+                color: white;
+                text-align: center;
+            }
+
+        	#detail {
+    		font-family: Georgia;
+    		font-size: 12px;
+    		border-collapse: collapse;
+    		width: 100%;
+    		}
+
+    		#detail td, #detail th {
+    		border: 1px solid #ddd;
+			padding: 4px
+			}
+
+			#detail th {
+			padding-top: 4px;
+			padding-bottom:4px;
+    		text-align: left;
+    		background-color: orange;
+    		color: orangered;
+			}
+
+
+
+
+			#detail tr:nth-child(even){background-color: #f2f2f2;}
+            #detail tr:nth-child(odd){background-color: white;}
+
+			#detail tr:hover {background-color: #ddd;}
+
+			ul.s { list-style-type: square; }
+
+        </style>
+</head>
+
+<!--< ------------------------------------------------------>
+<body>
+
+    <img src="{{ logo }}" alt="logo" align="right"/>
+    <div class="main-title" id="rcorners1"></br>{{ entriesList|length }} selected competition
+        {% if entriesList|length != 1 %} entries {% else %} entry {% endif %}&nbsp;&nbsp;</div>
+
+    <div class="heading2">&nbsp;&nbsp;&nbsp;Listing</div>
+<!--< ------------------------------------------------------>
+
+<table id="detail">
+     <thread>
+    <tr>
+        <th colspan="5">Competition</th>
+        <th colspan="5">Poem</th>
+        <th colspan="2">Entered on</th>
+        <th colspan="2">Comitted until</th>
+        <th colspan="2">Placement</th>
+        <th colspan="2">Expired on</th>
+    </tr>
+    </thread>
+    {% for e in entriesList %}
+    <tr>
+        <td colspan="5">{{ e.competition }}</td>
+        <td colspan="5">{{ e.poem }}</td>
+        <td colspan="2">{{ e.enteredOn|date:"Y-M-d" }}</td>
+        <td colspan="2">{{ e.committedUntil|date:"Y-M-d" }}</td>
+        <td colspan="2">{{ e.place }}</td>
+        <td colspan="2">{{ e.expiredOn|date:"Y-M-d" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</br>
+</br>
+<!--<---Footnote----------------------------------------------------->
+    <div class="footer">&copy;&nbsp;hummingBird competition entries listing report&nbsp;&nbsp;{{ dateTimeNow }}</div>
+<!--<---Footnote----------------------------------------------------->
+</body>
+</html>

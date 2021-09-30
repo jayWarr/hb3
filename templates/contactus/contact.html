@@ -1,0 +1,69 @@
+{% extends "admin/base_site.html" %}
+
+{% block branding %}
+<h1 id="site-name" style="font-size:3vw;"><a href="{% url 'admin:index' %}"><img src="/static/_images/hummingbird_thoughtshift_04_SMALL.png" /></a>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   hummingbird
+    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+    the poets' workbook
+</h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="contact_us_form"  style="margin-left: 50px;">
+        <h2 class="title">&nbsp;&nbsp;&nbsp;Email Contact Us</h2>
+        <p class="help-block" style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N.B. all fields are required</p>
+        <form action="." method="post" name="feedback" class="form-horizontal">{% csrf_token %}
+            <div class="form-group {% if form.name.errors %}has-error{% endif %}">
+                <label for="id_name" class="col-sm-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</label>
+                <div class="col-sm-6">
+                   <input type="text" name="name" class="form-control"
+                           id="id_name"
+                           value="{% if form.data.name %}{{form.data.name}}{% else %}{{form.initial.name}}{% endif %}" />
+                    </p>
+                </div>
+            </div>    
+            <div class="visualclear"></div>
+            <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                <label for="id_email" class="col-sm-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From E-mail Address</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" name="email"
+                           id="id_email"
+                           value="{% if form.data.email %}{{form.data.email}}{% else %}{{form.initial.email}}{% endif %}" />
+                    <div class="visualclear"></div>                
+<!--                    <p class="help-block">A valid e-mail address is required.</p>-->
+                </div>
+            </div>
+            <br />
+            <div class="visualclear"></div>
+            <div class="form-group {% if form.subject.errors %}has-error{% endif %}">
+                <label for="id_subject"  class="col-sm-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject</label>
+                <div class="col-sm-6">
+                    {{form.subject}}
+<!--                    <p class="help-block">Subject is a required field.</p>-->
+                </div>
+            </div>
+            <br />
+            <div class="form-group {% if form.description.errors %}has-error{% endif %}">
+                <label for="id_description" class="col-sm-2 control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</label>
+                <div class="col-sm-6">
+                    {{form.description}}
+<!--                    <p class="help-block">Description is a required field.</p>-->
+                </div>
+            </div>
+            <br/>
+            <div class="form-group {% if form.decoy.errors %}has-error{% endif %}">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="decoy" value="" placeholder="Please leave blank" autofill="off" />
+                <p class="help-block decoy" style="color:blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you can see this decoy field, please leave it blank.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn-primary pull-right" type="submit" value="Send"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

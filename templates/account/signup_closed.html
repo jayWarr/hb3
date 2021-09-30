@@ -1,0 +1,14 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% block head_title %}{% trans "Registration Closed" %}{% endblock %}
+
+{% block content %}
+<h3>
+    <img src="{% static '_images/hummingbird_thoughtshift_04_MEDIUM.png' %}" alt="hummingBird icon" />
+    {% trans "Registration Closed" %}
+</h3>
+
+<p>{% trans "We are sorry, but registration is currently closed." %}</p>
+{% endblock %}

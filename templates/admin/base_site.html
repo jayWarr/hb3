@@ -1,0 +1,100 @@
+{% extends "admin/base.html" %}
+{% load static baton_tags %}
+{% load i18n %}
+{% load get_SupportLookup %}
+
+
+{% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="{% static 'baton/app/dist/baton.min.js' %}"></script>
+    <!-- <script src="http://localhost:8080/dist/baton.min.js"></script> -->
+    {% baton_config as conf %}
+    {{ conf | json_script:"baton-config" }}
+    <script>
+        (function ($, undefined) {
+            $(document).ready(function () {
+                Baton.init(JSON.parse(document.getElementById('baton-config').textContent));
+            })
+        })(jQuery, undefined)
+    </script>
+
+{% endblock %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+
+{% endblock %}
+
+
+{% block branding %}
+<h1 id="site-name" style="font-size:3.5vw;"><a href="{% url 'admin:index' %}">{{ site_header|default:_('hummingBird administration') }}</a>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {{ site_title }}
+    &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+    the poets' workbook
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+
+
+{% block footer %}
+
+<div id="footer" class="site-footer">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-4 text-center">
+                <p>
+<!--    Version Details-->
+                    <a href="" target="_blank" title="hummingbird&nbsp;&nbsp;{{ request.session.Version_details }}"><sup><i class="fa fa-code-branch fa-3x" style="color:dodgerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--    Copyright-->
+                    <a href="" target="_blank" title="Copyright IMPpress 2021"><sup><i class="fa fa-copyright fa-3x" style="color:dodgerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--    Designed & Engineered-->
+                    <a href="" target="_blank" title="Designed & engineered by · jay Arr"><sup><i class="fa fa-user-cog fa-3x" style="color:dodgerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--    Django & Baton -->
+                    <a href="" target="_blank" title="{{ request.session.Python_Django_Baton_versions }}"><sup><i class="fa fa-cogs fa-3x" style="color:dodgerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-4 text-center">
+                <p>
+<!--  Help         -->
+                    <a href="{{ request.path|get_SupportLookup }}" target="_blank" title="Get the context sensitive Help_page" ><i class="fa fa-heading fa-2x" style="color:cornflowerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- Information -->
+                    <a href="/admin/maintenance/informationvideo/" target="_blank" title="Open access to the video_Information" ><i class="fa fa-info fa-2x" style="color:cornflowerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- Contact us- -->
+                    <a href="{% url 'contactus' %}" target="_blank" title="Email contact us"><sup><i class="fa fa-paper-plane fa-3x" style="color:cornflowerblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-4 text-center">
+                <p>
+<!-- open current WIP nb needs dropbox link to be present-->
+                    {% if request.session.has_Current_WIP_poem %}
+                        <a href="{{ request.session.Current_WIP_note_URL }}" target="_blank"
+                           title="Open the current WIP poem note:&#13;&#10;{{ request.session.Current_WIP_title }}">
+                            <sup><i class="fa fa-file-alt fa-3x" style="color:deepskyblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {%  endif %}
+<!-- password change        -->
+                    <a href="/admin/password_change/" target="_blank" title="Change password"
+                    <i class="fa fa-key fa-2x" style="color:deepskyblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <!-- Logout         -->
+                    <a href="/admin/logout/" target="_blank" title="Logout"
+                    <i class="fa fa-sign-out-alt fa-2x" style="color:deepskyblue"></i></sup></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

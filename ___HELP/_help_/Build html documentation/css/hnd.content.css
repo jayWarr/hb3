@@ -1,0 +1,586 @@
+/* ========== Text Styles ========== */
+hr { color: #000000}
+.main-content, .main-content table span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6
+{
+ font-family: 'Georgia', serif;
+}
+span.rvts7
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts8
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts9
+{
+ font-family: 'Georgia', serif;
+ font-style: italic;
+ color: #800000;
+}
+a.rvts10, span.rvts10
+{
+ font-family: 'Georgia', serif;
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts11
+{
+ font-size: 14pt;
+ font-family: 'Calisto MT';
+ font-weight: bold;
+ color: #0080ff;
+}
+span.rvts12
+{
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+}
+span.rvts13 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts14, span.rvts14 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+a.rvts15, span.rvts15
+{
+ font-family: 'Georgia', serif;
+ color: #0000ff;
+ text-decoration: underline;
+}
+a.rvts16, span.rvts16
+{
+ font-family: 'Georgia', serif;
+ color: #ff0000;
+ text-decoration: underline;
+}
+span.rvts17
+{
+ font-family: 'Georgia', serif;
+ color: ;
+}
+a.rvts18, span.rvts18
+{
+ font-family: 'Georgia-Italic';
+ font-style: italic;
+ color: #ff0000;
+ text-decoration: none;
+ border-bottom: solid 1px #0000ff;
+}
+a.rvts19, span.rvts19
+{
+ font-family: 'Georgia', serif;
+ color: #ff0000;
+ text-decoration: none;
+ border-bottom: solid 1px #0000ff;
+}
+a.rvts20, span.rvts20
+{
+ font-family: 'Georgia', serif;
+ color: ;
+ text-decoration: none;
+}
+span.rvts21
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: ;
+}
+span.rvts22
+{
+ font-family: 'ArialMT';
+}
+span.rvts23
+{
+ font-family: 'Georgia', serif;
+ color: #262626;
+}
+span.rvts24
+{
+ font-family: 'Georgia', serif;
+ color: #262626;
+}
+span.rvts25
+{
+ font-family: 'Georgia-Bold';
+ font-weight: bold;
+ color: #262626;
+}
+span.rvts26
+{
+ font-family: 'Georgia', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #262626;
+}
+a.rvts27, span.rvts27
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: ;
+ text-decoration: none;
+ border-bottom: solid 1px #0000ff;
+}
+a.rvts28, span.rvts28
+{
+ font-family: 'Georgia', serif;
+ color: ;
+ text-decoration: underline;
+}
+span.rvts29
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+}
+span.rvts30
+{
+ font-family: 'Georgia', serif;
+ color: ;
+}
+span.rvts31
+{
+ font-size: 12pt;
+ font-family: 'Georgia', serif;
+ color: ;
+}
+span.rvts32
+{
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: ;
+}
+span.rvts33
+{
+ font-family: 'Georgia', serif;
+ color: #680000;
+}
+span.rvts34
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #bf0000;
+}
+span.rvts35
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #680000;
+}
+span.rvts36
+{
+ font-family: 'Georgia', serif;
+ color: #3f474c;
+}
+span.rvts37
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #3f474c;
+}
+span.rvts38
+{
+ font-size: 14pt;
+ font-family: 'Calisto MT';
+ font-weight: bold;
+ color: #007bbf;
+}
+span.rvts39
+{
+ font-size: 14pt;
+ font-family: 'Calisto MT';
+ font-weight: bold;
+ color: #0080ff;
+}
+span.rvts40
+{
+ font-family: 'Georgia', serif;
+ font-style: italic;
+}
+span.rvts41
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #ffffff;
+ background-color: #00b050;
+}
+a.rvts42, span.rvts42
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts43
+{
+ font-family: 'Georgia', serif;
+ font-style: italic;
+ font-weight: bold;
+}
+a.rvts44, span.rvts44
+{
+ font-family: 'Georgia', serif;
+ font-style: italic;
+ font-weight: bold;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts45
+{
+ font-family: 'Georgia', serif;
+ color: #ffffff;
+ background-color: #00a5ff;
+}
+span.rvts46
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #ff0000;
+}
+span.rvts47
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #7f0000;
+}
+span.rvts48
+{
+ font-size: 13pt;
+ font-family: 'JetBrains Mono';
+ color: #090909;
+}
+span.rvts49
+{
+ font-size: 13pt;
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0e6e6d;
+}
+span.rvts50
+{
+ font-size: 13pt;
+ font-family: 'Georgia', serif;
+ color: ;
+}
+span.rvts51
+{
+ font-family: 'Georgia', serif;
+ color: #092f9d;
+}
+span.rvts52
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0e6e6d;
+}
+span.rvts53
+{
+ font-family: 'Georgia', serif;
+ color: #ff0000;
+}
+span.rvts54
+{
+ font-size: 12pt;
+ font-family: 'Calisto MT';
+ font-weight: bold;
+ color: #0080ff;
+}
+span.rvts55
+{
+ font-size: 12pt;
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0080ff;
+}
+span.rvts56
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #ffffff;
+ background-color: #00a5ff;
+}
+span.rvts57
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: ;
+}
+span.rvts58
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #000000;
+}
+span.rvts59
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #c814c9;
+}
+span.rvts60
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #400bd9;
+}
+span.rvts61
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #6f6f6f;
+}
+span.rvts62
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #2fb41d;
+}
+span.rvts63
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #9fa01c;
+}
+span.rvts64
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #e0e409;
+}
+span.rvts65
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #dfdfdf;
+}
+span.rvts66
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #ffffff;
+ background-color: #00b0f0;
+}
+span.rvts67
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #400bd9;
+ background-color: #00b0f0;
+}
+span.rvts68
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #000000;
+ background-color: #00b0f0;
+}
+span.rvts69
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts70
+{
+ font-size: 11pt;
+ font-family: 'Menlo-Regular';
+ color: #ff0000;
+}
+span.rvts71
+{
+ font-family: 'Georgia', serif;
+ color: #007bbf;
+}
+span.rvts72
+{
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #680000;
+}
+span.rvts73
+{
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ font-weight: bold;
+ color: #680000;
+}
+span.rvts74
+{
+ font-family: 'Georgia', serif;
+ color: #1a1a1a;
+}
+a.rvts75, span.rvts75
+{
+ font-family: 'Georgia', serif;
+ color: ;
+ text-decoration: underline;
+}
+span.rvts76
+{
+ font-size: 7pt;
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #680000;
+ vertical-align: super;
+}
+span.rvts77
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #0070c0;
+}
+a.rvts78, span.rvts78
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #007bbf;
+ text-decoration: underline;
+}
+span.rvts79
+{
+ font-family: 'Georgia', serif;
+ font-weight: bold;
+ color: #007bbf;
+}
+span.rvts80
+{
+ font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif;
+ color: #ff0000;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+}
+.rvps3
+{
+ text-align: center;
+}
+.rvps4
+{
+ text-align: center;
+ text-indent: 0px;
+ page-break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
+}
+.rvps5 /* Paragraph Style */
+{
+ text-align: center;
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-left: none;
+ padding: 2px 0px 2px 0px;
+ margin: 7px 0px 7px 0px;
+}
+.rvps6
+{
+ margin: 0px 0px 0px 24px;
+}
+.rvps7
+{
+ margin: 0px 0px 0px 48px;
+}
+.rvps8
+{
+ text-align: left;
+ text-indent: 0px;
+ page-break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
+}
+.rvps9
+{
+ text-indent: 48px;
+ background: #ffffff;
+ margin: 0px 0px 0px 48px;
+}
+.rvps10
+{
+ text-indent: 48px;
+}
+.rvps11
+{
+ margin: 0px 0px 0px 72px;
+}
+.rvps12
+{
+ text-indent: 48px;
+ margin: 0px 0px 0px 168px;
+}
+.rvps13
+{
+ text-indent: 48px;
+ margin: 0px 0px 0px 24px;
+}
+.rvps14
+{
+ background: #ffffff;
+}
+.rvps15
+{
+ margin: 0px 0px 0px 72px;
+}
+.rvps16
+{
+ margin: 0px 0px 0px 96px;
+}
+/* ========== Lists ========== */
+.list0 {text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;}
+.list1 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;}
+.list2 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;}
+.list3 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;}
+.list4 {text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: decimal;}
+.list5 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: decimal;}

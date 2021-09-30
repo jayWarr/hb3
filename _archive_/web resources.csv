@@ -1,0 +1,5 @@
+id,created,updated,country,type,noOfUpdates,updateInterval,refSource,reflink,additions
+1,2020-02-05 11:08:34.069259+00,2020-02-05 21:39:21.089542+00,GBR,1,1,31,https://www.nationalpoetrylibrary.org.uk,/write-publish/competitions,34
+2,2020-02-05 14:39:53.784109+00,2020-02-07 01:39:23.28691+00,USA,1,3,31,http://www.ardorlitmag.com,/poetry-contests.html,66
+3,2020-02-07 15:00:42.478482+00,2020-02-07 15:14:32.412068+00,GBR,2,1,31,https://www.nationalpoetrylibrary.org.uk,/write-publish/magazines,153
+4,2020-02-07 15:56:49.886621+00,2020-02-07 16:07:29.689718+00,GBR,3,1,31,https://www.nationalpoetrylibrary.org.uk,/write-publish/publishers,103
